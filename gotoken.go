@@ -33,3 +33,12 @@ func GenerateURLSafe(n int) (string, error) {
 	}
 	return base64.RawURLEncoding.EncodeToString(bytes), nil
 }
+
+// GenerateBase64 returns a random base64 string containing n bytes.
+func GenerateBase64(n int) (string, error) {
+	bytes, err := GenerateBytes(n)
+	if err != nil {
+		return "", err
+	}
+	return base64.RawStdEncoding.EncodeToString(bytes), nil
+}
